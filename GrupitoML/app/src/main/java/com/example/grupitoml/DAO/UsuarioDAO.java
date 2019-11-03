@@ -3,7 +3,9 @@ package com.example.grupitoml.DAO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.grupitoml.DB.DBOpenHelper;
 import com.example.grupitoml.Model.Usuario;
@@ -61,6 +63,47 @@ public class UsuarioDAO {
             return usuarios;
         }
         return null;
+    }
+
+    public boolean alterarUsuario(Usuario usuario, Context context){
+        DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+        SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        String where;
+        try{
+            where = "ID" + "=" + usuario.getID();
+
+
+            valores.put("Email", usuario.getEmail());
+            valores.put("Nome", usuario.getNome());
+            valores.put("Senha", usuario.getSenha());
+            valores.put("Telefone", usuario.getTelefone());
+
+            db.update("Usuarios", valores, where,null);
+            db.close();
+            return true;
+        }catch (SQLException e){
+            Log.e("Erro", e.toString());
+            return false;
+        }
+
+    }
+
+    public boolean deletarUsuario(int id, Context context){
+        DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+
+        try{
+            String where = "ID" + "=" + id;
+
+            db.delete("Usuarios",where,null);
+            db.close();
+            return true;
+        }catch (SQLException e){
+            Log.e("Erro", e.toString());
+            return false;
+        }
+
     }
 }
 
