@@ -17,6 +17,12 @@ public class Usuario implements Parcelable {
         Senha = senha;
         Telefone = telefone;
     }
+    public Usuario (String email, String nome, String senha, String telefone) {
+        Email = email;
+        Nome = nome;
+        Senha = senha;
+        Telefone = telefone;
+    }
 
     private Usuario(Parcel in) {
         ID = in.readInt();

@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.grupitoml.Backup.UsuarioBackupCriar;
 import com.example.grupitoml.DB.DBOpenHelper;
 import com.example.grupitoml.Model.Usuario;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 public class UsuarioDAO {
     public static boolean inserirUsuario(Usuario usuario, Context context){
+        usuario.setEmail(usuario.getEmail().toLowerCase());
         long resultado;
 
         DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
@@ -26,8 +28,12 @@ public class UsuarioDAO {
         valores.put("Senha", usuario.getSenha());
         valores.put("Telefone", usuario.getTelefone());
 
-        resultado = db.insert("Usuario", null, valores);
+        resultado = db.insert("Usuarios", null, valores);
         db.close();
+        Log.i("inserirUsuario", "Criado usado com sucesso");
+
+        UsuarioBackupCriar usuarioBackupCriar = new UsuarioBackupCriar();
+        usuarioBackupCriar.execute(usuario);
 
         return resultado != -1;
 
@@ -89,6 +95,43 @@ public class UsuarioDAO {
 
     }
 
+    public boolean deletarUsuario(Usuario us, Context context){
+        DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+
+        try{
+            String where = "ID" + "=" + us.getID();
+
+            db.delete("Usuarios",where,null);
+            db.close();
+            return true;
+        }catch (SQLException e){
+            Log.e("Erro", e.toString());
+            return false;
+        }
+
+    }
+    public static boolean deletarUsuario(String email, Context context){
+        Log.i("DELETARUSUARIO", "Entrando na funcao");
+        DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+
+        try{
+            String table = "Usuarios";
+            String whereClause = "Email=?";
+            String[] whereArgs = new String[] {email};
+            db.delete(table, whereClause, whereArgs);
+
+            Log.i("DELETARUSUARIO", "USUARIO DELETADO");
+            return true;
+        }catch (SQLException e){
+            Log.e("Erro", e.toString());
+            return false;
+        }finally {
+            db.close();
+        }
+
+    }
     public boolean deletarUsuario(int id, Context context){
         DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
         SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
@@ -104,6 +147,24 @@ public class UsuarioDAO {
             return false;
         }
 
+    }
+
+    public static boolean loginUsuario(String email, String senha, Context context){
+        email = email.toLowerCase();
+        Log.i("LOGINUSUARIO", email);
+        Log.i("LOGINUSUARIO", senha);
+
+        DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+        String sql = "SELECT * FROM Usuarios WHERE Email=? and Senha=?";
+
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql, new String[]{email, senha});
+        cursor.moveToFirst();
+        Log.i("TAMANHOCURSOR", ""+ cursor.getCount());
+        if (cursor.getCount() == 0)return false;
+        return true;
     }
 }
 
