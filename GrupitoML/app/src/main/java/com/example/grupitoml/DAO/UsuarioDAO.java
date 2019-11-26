@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-    public static boolean inserirUsuario(Usuario usuario, Context context){
+    public  boolean inserirUsuario(Usuario usuario, Context context){
         usuario.setEmail(usuario.getEmail().toLowerCase());
         long resultado;
 

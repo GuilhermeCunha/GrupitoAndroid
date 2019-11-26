@@ -3,7 +3,9 @@ package com.example.grupitoml.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Produto implements Parcelable {
+import java.io.Serializable;
+
+public class Produto implements Parcelable, Serializable {
     private int ID;
     private String Url;
     private String Mensagem;

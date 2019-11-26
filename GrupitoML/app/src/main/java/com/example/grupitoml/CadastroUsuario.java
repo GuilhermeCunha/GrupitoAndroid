@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.grupitoml.DAO.UsuarioDAO;
+import com.example.grupitoml.Model.Usuario;
 
 public class CadastroUsuario extends AppCompatActivity {
     private EditText email;
@@ -19,6 +23,7 @@ public class CadastroUsuario extends AppCompatActivity {
     private String strTelefone;
     private Button confirmar;
 
+    UsuarioDAO dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +33,22 @@ public class CadastroUsuario extends AppCompatActivity {
         nome =(EditText) findViewById(R.id.EdtNome);
         telefone =(EditText) findViewById(R.id.EdtTelefone);
         confirmar =(Button) findViewById(R.id.BtnConfirmar);
+        dao = new UsuarioDAO();
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                strEmail= email.getText().toString();
-                strSenha= senha.getText().toString();
-                strNome= nome.getText().toString();
-                strTelefone= telefone.getText().toString();
+
+                Usuario U = new Usuario();
+
+                U.setEmail(email.getText().toString());
+                U.setSenha(senha.getText().toString());
+                U.setNome(nome.getText().toString());
+                U.setTelefone(telefone.getText().toString());
+                dao.inserirUsuario( U,getApplicationContext());
+                Toast.makeText(getBaseContext(),"usuario inserido ",Toast.LENGTH_SHORT).show();
+
             }
         });
+
     }
 }
