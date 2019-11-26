@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,6 +24,17 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
         setContentView(R.layout.activity_menu_principal);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+
+        init();
+    }
+
+
+    private void init(){
+        NavController navController = Navigation.findNavController(this,R.id.produtoFragment);
+        NavigationUI.setupActionBarWithNavController(this,drawerLayout);
+        NavigationUI.setupWithNavController(navigationView,navController);
+        navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override

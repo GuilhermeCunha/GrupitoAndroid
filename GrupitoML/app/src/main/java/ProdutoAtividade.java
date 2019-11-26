@@ -26,12 +26,13 @@ public class ProdutoAtividade extends AppCompatActivity {
     {
         return getResources().getBoolean(R.bool.smartphone);
     }
-    public void clicouNoAluno(Produto produto){
+
+    public void clicouNoProduto(Produto produto){
         if (isTablet()) {
             DetalheProdutoFragment fragment = DetalheProdutoFragment.novaInstancia(produto);
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.detalhe, fragment,DetalheProdutoFragment.TAG_DETALHE);
+            ft.replace(R.id.detalhe, fragment, DetalheProdutoFragment.TAG_DETALHE);
             ft.commit();
         } else {
             Intent it = new Intent(this, DetalheProdutoFragment.class);
