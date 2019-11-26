@@ -28,12 +28,12 @@ public class Splash extends AppCompatActivity {
                 mostrarLogin();
             }
         }, 2000);
+        mostrarLogin();
     }
 
     private void mostrarLogin() {
-        /*
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        finish();*/
     }
 }

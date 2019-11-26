@@ -2,41 +2,39 @@ package com.example.grupitoml;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class CadastroUsuario extends AppCompatActivity {
     private EditText email;
     private String strEmail;
     private EditText senha;
     private String strSenha;
-    private TextView cadastro;
-    private Button login;
+    private EditText nome;
+    private String strNome;
+    private EditText telefone;
+    private String strTelefone;
+    private Button confirmar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_cadastro_usuario);
         email =(EditText) findViewById(R.id.EdtEmail);
         senha =(EditText) findViewById(R.id.EdtSenha);
-        cadastro =(TextView) findViewById(R.id.TxtCadastro);
-        login =(Button) findViewById(R.id.BtnLogin);
-        cadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CadastroUsuario.class);
-                startActivity(intent);
-            }
-        });
-        login.setOnClickListener(new View.OnClickListener() {
+        nome =(EditText) findViewById(R.id.EdtNome);
+        telefone =(EditText) findViewById(R.id.EdtTelefone);
+        confirmar =(Button) findViewById(R.id.BtnConfirmar);
+        confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 strEmail= email.getText().toString();
                 strSenha= senha.getText().toString();
+                strNome= nome.getText().toString();
+                strTelefone= telefone.getText().toString();
             }
         });
     }
