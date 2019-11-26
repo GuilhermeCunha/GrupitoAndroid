@@ -31,7 +31,7 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
 
     private void init(){
         NavController navController = Navigation.findNavController(this,R.id.produtoFragment);
-        NavigationUI.setupActionBarWithNavController(this,drawerLayout);
+        NavigationUI.setupActionBarWithNavController(this, drawerLayout);
         NavigationUI.setupWithNavController(navigationView,navController);
         navigationView.setNavigationItemSelectedListener(this);
 

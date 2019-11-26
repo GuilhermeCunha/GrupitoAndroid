@@ -3,12 +3,24 @@ package com.example.grupitoml.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Produto implements Parcelable, Serializable {
+
+    @SerializedName("id")
+    @Expose
     private int ID;
+    @SerializedName("nome")
+    @Expose
     private String Url;
+    @SerializedName("mensagem")
+    @Expose
     private String Mensagem;
+    @SerializedName("preco")
+    @Expose
     private Double Preco;
 
     public Produto(int ID, String url, String mensagem, Double preco) {

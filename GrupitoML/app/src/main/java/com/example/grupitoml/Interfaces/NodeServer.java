@@ -1,6 +1,7 @@
 package com.example.grupitoml.Interfaces;
 
 
+import com.example.grupitoml.Model.Produto;
 import com.example.grupitoml.Model.Usuario;
 
 import java.util.List;
@@ -27,4 +28,24 @@ public interface NodeServer {
     @DELETE("/remover-usuario")
     Call<Usuario> RemoverUsuario(@Field("email") String email);
 
+    @FormUrlEncoded
+    @POST("/login")
+    Call<Usuario> login(@Field("email") String email, @Field("senha") String senha);
+
+
+    @FormUrlEncoded
+    @GET("/listar-produtos")
+    Call<Produto> listarProdutos();
+
+    @FormUrlEncoded
+    @POST("/criar-produto")
+    Call<Produto> criarProduto(@Field("id") String id, @Field("nome") String nome, @Field("preco") Double preco, @Field("mensagem") String mensagem);
+
+    @FormUrlEncoded
+    @PUT("/editar-produto")
+    Call<Produto> editarProduto(@Field("id") String id, @Field("nome") String nome, @Field("preco") Double preco, @Field("mensagem") String mensagem);
+
+    @FormUrlEncoded
+    @DELETE("/remover-produto")
+    Call<Produto> RemoverProduto(@Field("id") String id);
 }

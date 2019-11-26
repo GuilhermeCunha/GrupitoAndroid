@@ -4,10 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.grupitoml.API.RetrofitClientInstance;
+import com.example.grupitoml.Interfaces.NodeServer;
+import com.example.grupitoml.Model.Usuario;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private EditText email;
@@ -37,6 +47,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 strEmail= email.getText().toString();
                 strSenha= senha.getText().toString();
+
+                NodeServer service = RetrofitClientInstance.getRetrofitInstance().create(NodeServer.class);
+                Call<Usuario> call = service.login(strEmail, strSenha);
+
+                call.enqueue(new Callback<Usuario>() {
+                    @Override
+                    public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                        if(response.isSuccessful()){
+                            Toast toast = Toast.makeText(getApplicationContext(), "Seja bem vindo " + response.body().getNome(), Toast.LENGTH_SHORT);
+                            toast.show();
+
+                            Intent i = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
+                            startActivity(i);
+                        }else{
+                            Log.e("ONRESPONSE","CREDENCIAIS INVÁLIDAS");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Usuario> call, Throwable t) {
+                        Log.e("OSFAILURE", "NÃO OK");
+                    }
+                });
             }
         });
     }
