@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/wallpaper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper"
-    tools:context=".CadastroUsuario">
+    tools:context=".CadastroProduto">
 
     <TextView
         android:id="@+id/TxtNome"
@@ -14,84 +14,65 @@
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="100dp"
-        android:text="Nome"
+        android:text="Titulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/EdtNome"
+        android:id="@+id/EdtTitulo"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/TxtNome"
         app:layout_constraintTop_toBottomOf="@+id/TxtNome" />
 
     <TextView
-        android:id="@+id/TxtEmail"
+        android:id="@+id/TxtPreco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Email"
+        android:text="Preço"
         app:layout_constraintStart_toStartOf="@+id/TxtNome"
-        app:layout_constraintTop_toBottomOf="@+id/EdtNome" />
+        app:layout_constraintTop_toBottomOf="@+id/EdtTitulo" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/EdtPreco"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/TxtEmail"
-        app:layout_constraintTop_toBottomOf="@+id/TxtEmail" />
-
-    <TextView
-        android:id="@+id/TxtSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Senha"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
-
-    <EditText
-        android:id="@+id/EdtSenha"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/TxtSenha"
-        app:layout_constraintTop_toBottomOf="@+id/TxtSenha" />
-
-    <TextView
-        android:id="@+id/TxtTelefone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Telefone"
-        app:layout_constraintStart_toStartOf="@+id/EdtSenha"
-        app:layout_constraintTop_toBottomOf="@+id/EdtSenha" />
-
-    <EditText
-        android:id="@+id/EdtTelefone"
-        android:layout_width="290dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/TxtTelefone"
-        app:layout_constraintTop_toBottomOf="@+id/TxtTelefone" />
+        app:layout_constraintStart_toStartOf="@+id/TxtPreco"
+        app:layout_constraintTop_toBottomOf="@+id/TxtPreco" />
+
+    <TextView
+        android:id="@+id/TxtMensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Mensagem"
+        app:layout_constraintStart_toStartOf="@+id/TxtPreco"
+        app:layout_constraintTop_toBottomOf="@+id/EdtPreco" />
+
+    <EditText
+        android:id="@+id/EdtMensagem"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/TxtMensagem"
+        app:layout_constraintTop_toBottomOf="@+id/TxtMensagem" />
 
     <Button
-        android:id="@+id/BtnConfirmar"
+        android:id="@+id/BtnPublicar"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/btn"
-        android:text="Confirmar"
-        app:layout_constraintEnd_toEndOf="@+id/EdtTelefone"
-        app:layout_constraintTop_toBottomOf="@+id/EdtTelefone" />
+        android:text="Publicar"
+        app:layout_constraintEnd_toEndOf="@+id/EdtMensagem"
+        app:layout_constraintTop_toBottomOf="@+id/EdtMensagem" />
 </androidx.constraintlayout.widget.ConstraintLayout>
