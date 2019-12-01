@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/EdtNome" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editEmailCadastro"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Senha"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="@+id/editEmailCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/editEmailCadastro" />
 
     <EditText
         android:id="@+id/EdtSenha"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/TxtSenha"
         app:layout_constraintTop_toBottomOf="@+id/TxtSenha" />
 

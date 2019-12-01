@@ -28,7 +28,7 @@ public class CadastroUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
-        email =(EditText) findViewById(R.id.EdtEmail);
+        email =(EditText) findViewById(R.id.editEmailCadastro);
         senha =(EditText) findViewById(R.id.EdtSenha);
         nome =(EditText) findViewById(R.id.EdtNome);
         telefone =(EditText) findViewById(R.id.EdtTelefone);
@@ -40,7 +40,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
                 Usuario U = new Usuario();
 
-                U.setEmail(email.getText().toString());
+                U.setEmail(email.getText().toString().toLowerCase().trim());
                 U.setSenha(senha.getText().toString());
                 U.setNome(nome.getText().toString());
                 U.setTelefone(telefone.getText().toString());
