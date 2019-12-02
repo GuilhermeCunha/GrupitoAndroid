@@ -22,15 +22,19 @@ public class UsandoDrawer extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usando_drawer);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        configurarDrawer();
+    }
+
+    public void configurarDrawer(){
+        this.toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        this.drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
-        drawerLayout.addDrawerListener(toggle);
+        this.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.navView);
-        navigationView.setNavigationItemSelectedListener(this);
+        this.navigationView = (NavigationView) findViewById(R.id.navView);
+        this.navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
