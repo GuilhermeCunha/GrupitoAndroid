@@ -1,3 +1,5 @@
+package com.example.grupitoml.Fragments;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

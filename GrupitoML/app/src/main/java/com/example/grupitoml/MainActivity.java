@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast toast = Toast.makeText(getApplicationContext(), "Seja bem vindo " + response.body().getNome(), Toast.LENGTH_SHORT);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), MenuPrincipalActivity.class);
+                            Intent i = new Intent(getApplicationContext(), UsandoDrawer.class);
                             startActivity(i);
                         }else{
                             Log.e("ONRESPONSE","CREDENCIAIS INVÁLIDAS");

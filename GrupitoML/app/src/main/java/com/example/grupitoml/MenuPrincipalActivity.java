@@ -25,17 +25,17 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        init();
+        //init();
     }
 
-
+/*
     private void init(){
         NavController navController = Navigation.findNavController(this,R.id.produtoFragment);
         NavigationUI.setupActionBarWithNavController(this, drawerLayout);
         NavigationUI.setupWithNavController(navigationView,navController);
         navigationView.setNavigationItemSelectedListener(this);
 
-    }
+    }*/
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

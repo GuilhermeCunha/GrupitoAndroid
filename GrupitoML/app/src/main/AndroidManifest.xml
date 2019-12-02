@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SobreApp"></activity>
+        <activity android:name=".UsandoDrawer" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".SobreApp" />
         <activity android:name=".CadastroProduto" />
         <activity android:name=".MenuPrincipalActivity" />
         <activity android:name=".CadastroUsuario" />

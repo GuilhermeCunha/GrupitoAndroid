@@ -6,4 +6,6 @@
     <string name="cadproduto">Cadastrar Produto</string>
     <string name="visuproduto">Visualizar Produto</string>
     <string name="sobre">Sobre Nós</string>
+    <string name="open_drawer">Abrir</string>
+    <string name="close_drawer">Fechar</string>
 </resources>

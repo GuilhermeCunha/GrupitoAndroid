@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProdutoFragment">
+    tools:context=".Fragments.ProdutoAtividade">
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.grupitoml.ProdutoFragment"
+        android:name="com.example.grupitoml.Fragments.ProdutoFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
