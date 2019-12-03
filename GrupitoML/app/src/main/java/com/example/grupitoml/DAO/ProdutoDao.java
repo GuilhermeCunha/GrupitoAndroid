@@ -16,7 +16,8 @@ import java.util.List;
 
 public class ProdutoDao {
 
-    public static boolean inserirProduto(Produto produto, Context context){
+
+    public boolean inserirProduto(Produto produto, Context context){
         long resultado;
 
         DBOpenHelper dbOpenHelper = new DBOpenHelper(context);

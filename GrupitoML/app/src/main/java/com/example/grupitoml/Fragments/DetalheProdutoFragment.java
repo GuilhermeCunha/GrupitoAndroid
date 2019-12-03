@@ -45,7 +45,8 @@ public class DetalheProdutoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater,
+     ]
+    .~´[=p-lm ,nbcva\   1'public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(
                 R.layout.fragment_detalhe_produto, container, false);

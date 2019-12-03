@@ -23,6 +23,8 @@ public class Produto implements Parcelable, Serializable {
     @Expose
     private Double Preco;
 
+    public Produto(){ }
+
     public Produto(int ID, String url, String mensagem, Double preco) {
         this.ID = ID;
         Url = url;
