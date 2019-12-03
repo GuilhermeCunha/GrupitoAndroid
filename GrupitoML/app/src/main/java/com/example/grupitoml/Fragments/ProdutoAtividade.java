@@ -36,7 +36,7 @@ public class ProdutoAtividade extends AppCompatActivity {
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.detalhe, fragment, DetalheProdutoFragment.TAG_DETALHE);
             ft.commit();
-        } else {
+        } else if(isSmartphone()) {
             Intent it = new Intent(this, DetalheProdutoFragment.class);
             it.putExtra(DetalheProdutoFragment.EXTRA_PRODUTO, (Serializable) produto);
             startActivity(it);

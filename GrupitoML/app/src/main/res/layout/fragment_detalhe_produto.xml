@@ -6,9 +6,10 @@
     tools:context=".Fragments.DetalheProdutoAtividade">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <fragment
+        android:id="@+id/fragmentDetalhe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Text" />
+        android:layout_height="563dp"></fragment>
 
 </FrameLayout>

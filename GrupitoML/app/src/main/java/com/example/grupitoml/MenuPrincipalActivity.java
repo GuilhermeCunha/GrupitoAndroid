@@ -4,13 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.grupitoml.Fragments.ProdutoFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MenuPrincipalActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +46,8 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
         switch (menuItem.getItemId()){
 
             case R.id.nav_cadproduto:{
+                Intent intente = new Intent(getApplicationContext(),CadastroProduto.class);
+                startActivity(intente);
 
                 break;
 
@@ -50,6 +55,9 @@ public class MenuPrincipalActivity extends AppCompatActivity implements Navigati
 
             case R.id.nav_visuproduto:{
 
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.flProduto,new ProdutoFragment());
+                ft.commit();
                 break;
 
             }
